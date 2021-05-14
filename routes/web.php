@@ -1,6 +1,13 @@
 <?php
 
+use App\Http\Controllers\TaskController;
+use App\Models\Task;
 use Illuminate\Support\Facades\Route;
+use App\Tasks;
+use Illuminate\Support\Facades\Validator;
+//use GuzzleHttp\Psr7\Request;
+use Illuminate\Http\Request;
+//dùng sai cái
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[TaskController::class,'index']);
+
+Route::post('/task',[TaskController::class,'addTask']);
+
+Route::delete('/task/{task}',[TaskController::class,'deleteTask']);
